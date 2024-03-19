@@ -1,30 +1,42 @@
-Four network sectors:
-
-- Management/Secretariat (5 workstations)
-- Study (8 workstations)
-- Production (10 workstations)
-- Support (2 sectors, 10 workstations each)
-
-Server networks:
-- DHCP
-- DMZ
-- DNS
-- iSCSI storage server
-
-Need to use VLANs and ACLs
-
-Choice of mask :  192.168.1.0/27
-
-We could make up to 8 subnets with up to 30 hosts ( for scalabilty )
-
-| Subnet Number | Network Address (Decimal) | Broadcast Address (Decimal) | Usable Hosts (Decimal) |
-| ------------- | ------------------------- | --------------------------- | ---------------------- |
-| 1 Net Devices | 192.168.1.0               | 192.168.1.31                | 30                     |
-| 2 DMZ         | 192.168.1.32              | 192.168.1.63                | 30                     |
-| 3 MGMT        | 192.168.1.64              | 192.168.1.95                | 30                     |
-| 4 STUDY       | 192.168.1.96              | 192.168.1.127               | 30                     |
-| 5 PROD        | 192.168.1.128             | 192.168.1.159               | 30                     |
-| 6 SUPPORT 1   | 192.168.1.160             | 192.168.1.191               | 30                     |
-| 7 SUPPORT 2   | 192.168.1.192             | 192.168.1.223               | 30                     |
-| 8 FIREWALL    | 192.168.1.224             | 192.168.1.255               | 30                     |
-
+1. **DMZ Subnet:**
+    
+    - Subnet: 192.168.10.0/24
+    - IP Range: 192.168.10.1 - 192.168.10.254
+    - Default Gateway: 192.168.10.1
+    - DHCP Scope: 192.168.10.50 - 192.168.10.100 (for servers in the DMZ)
+2. **Management Subnet:**
+    
+    - Subnet: 192.168.20.0/24
+    - IP Range: 192.168.20.1 - 192.168.20.254
+    - Default Gateway: 192.168.20.1
+    - DHCP Scope: 192.168.20.100 - 192.168.20.150
+3. **Production Subnet:**
+    
+    - Subnet: 192.168.30.0/24
+    - IP Range: 192.168.30.1 - 192.168.30.254
+    - Default Gateway: 192.168.30.1
+    - DHCP Scope: 192.168.30.100 - 192.168.30.200
+4. **Support 1 Subnet:**
+    
+    - Subnet: 192.168.40.0/24
+    - IP Range: 192.168.40.1 - 192.168.40.254
+    - Default Gateway: 192.168.40.1
+    - DHCP Scope: 192.168.40.100 - 192.168.40.150
+5. **Support 2 Subnet:**
+    
+    - Subnet: 192.168.50.0/24
+    - IP Range: 192.168.50.1 - 192.168.50.254
+    - Default Gateway: 192.168.50.1
+    - DHCP Scope: 192.168.50.100 - 192.168.50.150
+6. **Study Subnet:**
+    
+    - Subnet: 192.168.60.0/24
+    - IP Range: 192.168.60.1 - 192.168.60.254
+    - Default Gateway: 192.168.60.1
+    - DHCP Scope: 192.168.60.100 - 192.168.60.200
+7. **Network Devices Subnet (for routers, switches, etc.):**
+    
+    - Subnet: 192.168.70.0/24
+    - IP Range: 192.168.70.1 - 192.168.70.254
+    - Default Gateway: 192.168.70.1
+    - DHCP Scope: Not necessary (configure static IP addresses for network devices)
