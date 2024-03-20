@@ -1,0 +1,148 @@
+{
+  "main": {
+    "id": "0046077be93bbbdc",
+    "type": "split",
+    "children": [
+      {
+        "id": "eba3aec301db1874",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "681dca7f4f2d6b0b",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "354d63497d42b1ef",
+    "type": "split",
+    "children": [
+      {
+        "id": "562301d3bdd7649d",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8f17b8d999afa3cd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "1f1e053cfff86647",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8035b76a57504173",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "0042d558f363fe9e",
+    "type": "split",
+    "children": [
+      {
+        "id": "5f9519ab04be8957",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b0a50ebbb02c36e2",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "47bd5ca564bd705b",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "62f30dd895e6e8b8",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "16452f18476335f0",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "681dca7f4f2d6b0b",
+  "lastOpenFiles": [
+    "Clean_Network.pkt~",
+    "Clean_Network_Vlans.pkt~",
+    "Clean_Network_Vlans.pkt",
+    "To-Do List.md"
+  ]
+}
