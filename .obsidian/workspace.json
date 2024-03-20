@@ -11,11 +11,28 @@
             "id": "681dca7f4f2d6b0b",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "To-Do List.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          },
+          {
+            "id": "f8bac033fb4f1911",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Phase 2.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -81,6 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "Phase 2.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "Phase 2.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +137,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "Phase 2.md"
+              }
             }
           }
         ]
@@ -138,11 +159,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "681dca7f4f2d6b0b",
+  "active": "f8bac033fb4f1911",
   "lastOpenFiles": [
+    "To-Do List.md",
+    "Phase 2.md",
+    "README.md",
+    "planning.md",
+    "Phase 1.md",
     "Clean_Network.pkt~",
     "Clean_Network_Vlans.pkt~",
-    "Clean_Network_Vlans.pkt",
-    "To-Do List.md"
+    "Clean_Network_Vlans.pkt"
   ]
 }
