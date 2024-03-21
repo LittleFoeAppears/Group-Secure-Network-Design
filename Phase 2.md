@@ -119,3 +119,25 @@ switchport mode trunk
 switchport trunk allowed vlan all
 
 So now each switch has a trunk that allows all the vlans from the router and it allows data to be transferred from one vlan to an other and now any host can make a ping to any other host in the whole network or make a dhcp request to the subnet VLAN 70 where the dhcp server is hosted.
+
+
+For the ISCI server , since we can't make it in cisco packet tracer I will fake it by enabling FTP and TFTP on the network with this server. So i changed the server address to static : 
+
+![ISCI Static Ip Config](Assets/ISCI_Static_Config.png)
+
+Then I went back to the DHCP configuration and put the ISCI server ip in the TFTP configuration for each DCHP Pool : 192.168.70.4
+
+You can check that FTP is working by accessing a computer's cmd and typing : 
+
+ftp 192.168.70.4
+
+and the logins are : 
+
+admin / admin => admin account
+
+management / management
+production / production 
+support / support                              ==> per sector credentials
+study / study
+dmz / dmz
+
