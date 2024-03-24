@@ -1,7 +1,7 @@
 ### Subnets and VLANs
 
 To comply with our clients requirements we need to establish different subnets and VLANs :
-- Management - VLAN 10 
+- Management - VLAN 10
 - Production - VLAN 20
 - Study - VLAN 30
 - Support - VLAN 40
@@ -14,12 +14,17 @@ We created VLANs on each switch as shown earlier ( SHOW SCREENSHOT VLAN DATABASE
 
 Commands : 
 
+```bash
+en
+conf t
+
 int range fa0/3-20
 switchport access VLAN <VLAN number>
 
 int gig0/1
 switchport mode trunk
 switchport trunk allowed vlan all 
+```
 
 
 ### Initial Routers Config
@@ -35,24 +40,27 @@ We made the DMZ outside of the internal network to make our networks safer from 
 We need to create sub-interface to connect the vlans to the router. 
 Example for the VLAN 10 :
 
+```bash
 fa0/1
 no shutdown
 
 fa0/1.10
 encapsulation dot1Q 10
 ip address 192.168.10.1
-ip helper-address 192.168.0.11 ( Which will be our DHCP router that we'll explain in a bit )
+ip helper-address 192.168.0.11 
+# Which will be our DHCP router that we'll explain in a bit 
+```
 
-### Network Subnet 
+### Network Subnet 
 
 Now we can start configuring our network subnet and its servers.
 We create our servers are assign them static ips as such : 
 
-- DNS Server - 192.168.0.10
-- DHCP Server - 192.168.0.11
-- ISCI Server - 192.168.0.12
-- RADIUS Server - 192.168.0.13
-- ACTIVE DIRECTORY Server - 192.168.0.14
+> - DNS Server - 192.168.0.10
+> - DHCP Server - 192.168.0.11
+> - ISCI Server - 192.168.0.12
+> - RADIUS Server - 192.168.0.13
+> - ACTIVE DIRECTORY Server - 192.168.0.14
 
 DNS Server : 
 
@@ -64,13 +72,13 @@ DHCP Server :
 We can configure it by going to the service tab, put it on and create a DHCP pool per subnet/VLAN as such :  ( SHOW DHCP POOL SCREENSHOT )
 
 Example : 
-
-Name: Management
-Default Gateway : 192.168.10.1
-DNS Server : 192.168.0.10
-Start IP Address : 192.168.10.0
-Subnet Mask : 255.255.255.0
-Max User : 256
+> 
+> Name: Management
+> Default Gateway : 192.168.10.1
+> DNS Server : 192.168.0.10
+> Start IP Address : 192.168.10.0
+> Subnet Mask : 255.255.255.0
+> Max User : 256
 
 When it's done, any pc from the network should be able to do a DHCP request and get an IP.
 
@@ -85,6 +93,9 @@ RADIUS Server :
 We can configure it by going to the aaa service tab, put it on and configure it as such : ( SHOW RADIUS CONFIGURATION SCREENSHOT )
 We can then configure each routers from our network to use radius as such : (SHOW SCREENSHOT RADIUS CONFIG )
 
+```bash
+en
+conf t
 aaa new-model
 radius-server host 192.168.0.11 auth-port 1812 key password
 aaa authentication login default group radius local
@@ -94,6 +105,7 @@ line vty 0 15
 login authentication default
 transport input all
 end
+```
 
 Now, to enter to an host CLI you'd need to have credentials that gives access to the host.
 
@@ -105,17 +117,49 @@ Since it's not possible to make one in cisco packet tracer we've decided to emul
 
 ### The Outside 
 
-We then connected our external router to the internet. We emulated the internet by creating a cluster from where outsiders could host their servers ( In our example we created a google server ) ( SHOW GOOGLE SCREENSHOT ) and we made sure that we could access them from any hosts in our network. 
+We then connected our external router to the internet. 
+We emulated the internet by creating a cluster from where outsiders could host their servers ( In our example we created a google server ) ( SHOW GOOGLE SCREENSHOT ) and we made sure that we could access them from any hosts in our network. 
 
-### Routing 
+---
+
+### Routing 
 
 Our routers are connected via serial DTE cable and we configured the routes as such : ( SHOW ROUTES SCREENSHOT ) 
 
 For example connecting our internal router to the dmz : 
 
+```bash
 ip route 192.168.50.0 255.255.255.0 192.168.60.2
+```
 
-### Access List Config
+---
+
+### Access List Config
+
+On the External server we set first an Access list (101).
+We denied access to the DMZ except for http and https requests.
+So only normal utilization of the web server is allowed.
+>```bash
+>access-list 101 permit tcp any host 192.168.50.10 eq 80  
+>access-list 101 permit tcp any host 192.168.50.10 eq 443
+>access-list 101 deny ip any 192.168.50.0 0.0.0.255
+>access-list 101 permit ip any any
+>```
+
+On the Internal server we set the second Access list (102).
+We denied access to every inbound traffic except for responses to internal request (established connections).
+> ```bash
+> access-list 102 permit tcp any any established 
+> access-list 102 deny ip any any
+> ```
+
+
+So in conclusion we blocked anything to access the Internal Network, and only normal http or https can enter the DMZ from outside.
+This coupled with the radius system protecting the routers insure a descent security setup.
+
+
+
+
 
 
 
