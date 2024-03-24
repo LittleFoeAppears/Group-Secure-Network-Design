@@ -1,7 +1,7 @@
 ### Subnets and VLANs
 
 To comply with our clients requirements we need to establish different subnets and VLANs :
-- Management - VLAN 10
+- Management - VLAN 10 
 - Production - VLAN 20
 - Study - VLAN 30
 - Support - VLAN 40
