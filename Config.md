@@ -132,6 +132,8 @@ end
 
 Now, to enter to an host CLI you'd need to have credentials that gives access to the host.
 
+![Radius Access](Assets/RADIUS_ACCESS.png)
+
 ACTIVE DIRECTORY Server :
 
 Active Directory is an electronic phonebook for your network, storing user accounts, devices, and permissions in one central location for easy management and secure access.
