@@ -1,3 +1,5 @@
+
+
 ### Subnets and VLANs
 
 To comply with our clients requirements we need to establish different subnets and VLANs :
@@ -10,7 +12,13 @@ To comply with our clients requirements we need to establish different subnets a
 
 So we configure one switch per subnet and we connect the correct number of hosts to those switches. All the subnet switches except for the DMZ switch is plugged to the Internal Router and the DMZ switch is connected to the External Router. 
 
-We created VLANs on each switch as shown earlier ( SHOW SCREENSHOT VLAN DATABASE ), attributed every host port to those VLANs (SHOW SCREENSHOT VLAN HOST PORT ) and for the port connected from the switch to the router we need to establish them as Trunks (SHOW TRUNK SCREENSHOT ). 
+![VLAN DATABASE](Assets/VLAN_DATABASE.png)
+
+![VLAN HOST](Assets/VLAN_HOST_PORT.png)
+
+![TRUNK](Assets/VLAN_TRUNK.png)
+
+We created VLANs on each switch as shown earlier , attributed every host port to those VLANs and for the port connected from the switch to the router we need to establish them as Trunks . 
 
 Commands : 
 
@@ -64,12 +72,17 @@ We create our servers are assign them static ips as such :
 
 DNS Server : 
 
-We can configure it by going to the service tab , put it on and add some DNS record by providing a name, an Ip and a record type as such : (SHOW DNS TAB SCREENSHOT)
+We can configure it by going to the service tab , put it on and add some DNS record by providing a name, an Ip and a record type as such : 
+
+![DNS](Assets/DNS_TAB.png)
+
 Don't forget to copy the DNS server address and input it on all the static ip configured hosts on the network.
 
 DHCP Server : 
 
-We can configure it by going to the service tab, put it on and create a DHCP pool per subnet/VLAN as such :  ( SHOW DHCP POOL SCREENSHOT )
+We can configure it by going to the service tab, put it on and create a DHCP pool per subnet/VLAN as such :  
+
+![DHCP Pools](Assets/DHCP_POOL.png)
 
 Example : 
 > 
@@ -86,12 +99,20 @@ ISCI Server :
 
 We can configure it by going to the service tab , put it on and configure the ISCI Server.
 An iSCSI server is like a remote hard drive that you can connect to over your regular network cable, letting you store files on it from another computer.
-Since it is not possible on Cisco Packet tracer we decided to emulate it by creating an FTP server : ( SHOW FTP SERVER SCREEN )
+Since it is not possible on Cisco Packet tracer we decided to emulate it by creating an FTP server : 
+
+![FTP Config](Assets/FTP.png)
+
+![FTP Logged](Assets/FTP_ACCESS.png)
 
 RADIUS Server : 
 
-We can configure it by going to the aaa service tab, put it on and configure it as such : ( SHOW RADIUS CONFIGURATION SCREENSHOT )
-We can then configure each routers from our network to use radius as such : (SHOW SCREENSHOT RADIUS CONFIG )
+We can configure it by going to the aaa service tab, put it on and configure it as such : 
+
+![Radius Config](Assets/RADIUS_CONFIG.png)
+
+We can then configure each routers from our network to use radius as such : 
+
 
 ```bash
 en
@@ -107,24 +128,33 @@ transport input all
 end
 ```
 
+![Radius Login](Assets/RADIUS_ROUTER.png)
+
 Now, to enter to an host CLI you'd need to have credentials that gives access to the host.
 
 ACTIVE DIRECTORY Server :
 
 Active Directory is an electronic phonebook for your network, storing user accounts, devices, and permissions in one central location for easy management and secure access.
 Since it's not possible to make one in cisco packet tracer we've decided to emulate one by making a server that would host the active directory on a web page.
-(SHOW ACTIVE DIRECTORY SCREENSHOT)
+
+![Active Directory](Assets/ACTIVE_DIRECTORY.png)
 
 ### The Outside 
 
 We then connected our external router to the internet. 
-We emulated the internet by creating a cluster from where outsiders could host their servers ( In our example we created a google server ) ( SHOW GOOGLE SCREENSHOT ) and we made sure that we could access them from any hosts in our network. 
+We emulated the internet by creating a cluster from where outsiders could host their servers ( In our example we created a google server )  and we made sure that we could access them from any hosts in our network. 
+
+![Google](Assets/GOOGLE.png)
 
 ---
 
 ### Routing 
 
-Our routers are connected via serial DTE cable and we configured the routes as such : ( SHOW ROUTES SCREENSHOT ) 
+Our routers are connected via serial DTE cable and we configured the routes as such : 
+
+![Routes Internal](Assets/ROUTER_1.png)
+
+![Routes External](Assets/ROUTER_2.png)
 
 For example connecting our internal router to the dmz : 
 
@@ -155,7 +185,22 @@ We denied access to every inbound traffic except for responses to internal reque
 
 
 So in conclusion we blocked anything to access the Internal Network, and only normal http or https can enter the DMZ from outside.
-This coupled with the radius system protecting the routers insure a descent security setup.
+This coupled with the radius system protecting the routers insures a descent security setup.
+
+### Costs
+
+We estimate the cost of the installation to be about 70k dollars, here is the breakdown : 
+
+2 * 150 (routers) = 300
+6 * 1500 (switches) = 9000
+7 * 2000 (servers) = 14000
+39 * 1000 (PCs) = 39000
+4 * 1500 (Printers) = 6000
+= 68 300
+
+Plus the cabling. 
+
+
 
 
 
