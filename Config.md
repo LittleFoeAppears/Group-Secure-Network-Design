@@ -1,4 +1,4 @@
-![[Full_network.png]]
+![NETWORK ARCHITECTURE](Assets/network.png)
 
 # Subnets and VLANs
 

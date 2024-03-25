@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "VLANS.md",
+                "file": "Config.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "VLANS.md",
+                "file": "Config.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "VLANS.md",
+                "file": "Config.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "VLANS.md"
+                "file": "Config.md"
               }
             }
           }
@@ -148,6 +148,8 @@
   },
   "active": "d0db4d157697745b",
   "lastOpenFiles": [
+    "VLANS.md",
+    "Assets/network.png",
     "AD.md",
     "Network.pkt",
     "active_directory.md",
@@ -165,8 +167,6 @@
     "Assets/FTP_ACCESS.png",
     "Assets/FTP.png",
     "Assets/DHCP_POOL.png",
-    "Assets/DNS_TAB.png",
-    "VLANS.md",
     "Faketernet.md",
     "Documentation Gathering.md",
     "AD implementation.md",
