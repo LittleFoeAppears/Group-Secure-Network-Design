@@ -1,4 +1,4 @@
-This is a group project done with : @Etta99 @LittleFoeAppears and myself @Tuuxy
+This is a group project done with : @Etta99 @LittleFoeAppears @Tuuxy
 
 ![NETWORK ARCHITECTURE](Assets/network.png)
 
